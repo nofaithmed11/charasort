@@ -1,3 +1,6 @@
+const songLibrary = require('./employees.json');
+console.log(songLibrary);
+
 dataSetVersion = "2022-05-13"; // Change this when creating a new data set version. YYYY-MM-DD format.
 dataSet[dataSetVersion] = {};
 
