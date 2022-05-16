@@ -11,7 +11,7 @@ dataSet[dataSetVersion].options = [
       { name: "Wonderwall Music", tooltip: "George Harrison", key: "WM" },
       { name: "Two Virgins", tooltip: "John Lennon", key: "TV" },
       { name: "Life with the Lions", tooltip: "John Lennon", key: "LwtL" },
-      { name: "Electronic Sound", tooltip: "George Harrison", key: "ES" },
+      { name: "Electronic Sound", tooltip: "George Harrison", key: "ESo" },
       { name: "Wedding Album", tooltip: "John Lennon", key: "WA" },
       { name: "Sentimental Journey", tooltip: "Ringo Starr", key: "SJ" },
       { name: "McCartney", tooltip: "Paul McCartney", key: "MI" },
