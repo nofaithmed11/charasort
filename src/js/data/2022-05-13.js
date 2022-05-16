@@ -80,7 +80,7 @@ dataSet[dataSetVersion].options = [
     ]
   }];
 
-dataSet[dataSetVersion].characterData = [
+dataSet[dataSetVersion].songData = [
   {
     name: "Imagine",
     img: "https://upload.wikimedia.org/wikipedia/en/6/69/ImagineCover.jpg",
