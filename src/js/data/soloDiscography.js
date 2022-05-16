@@ -4,7 +4,7 @@ const soloDiscographySongLibrary = [
         "opts": {
             "series": "ATMP"
         },
-        "img": "https:"
+        "img": "https://upload.wikimedia.org/wikipedia/en/a/a1/All_Things_Must_Pass_1970_cover.jpg"
     },
     {
         "name": "All Things Must Pass",
@@ -5368,4 +5368,4 @@ const soloDiscographySongLibrary = [
         },
         "img": "https://upload.wikimedia.org/wikipedia/en/1/10/RingoStarr_YNot.jpg"
     }
-]
+  ];

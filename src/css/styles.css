@@ -121,13 +121,15 @@ body {
 }
 
 .sorter > .text {
-  width: 120px;
+  width: 180px;
   height: 60px;
   display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .sorter > .text > p {
-  margin: 0.5em 5px 0px;
+  margin: 0 5px 0px;
   width: calc(100%-10px);
   text-align: center;
   font-size: 0.8em;
