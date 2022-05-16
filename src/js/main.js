@@ -1,61 +1,62 @@
 /** @type {SongData} */
-let songData       = [];   // Initial song data set used.
+let songData = [];   // Initial song data set used.
 /** @type {SongData} */
-let songDataToSort = [];   // Song data set after filtering.
+let songDataToSort = []; // Song data set after filtering.
 /** @type {Options} */
-let options             = [];   // Initial option set used.
+let options = []; // Initial option set used.
 
-let currentVersion      = '';   // Which version of songData and options are used.
+let currentVersion = ''; // Which version of songData and options are used.
 
 /** @type {(boolean|boolean[])[]} */
-let optTaken  = [];             // Records which options are set.
+let optTaken  = []; // Records which options are set.
 
 /** Save Data. Concatenated into array, joined into string (delimited by '|') and compressed with lz-string. */
-let timestamp = 0;        // savedata[0]      (Unix time when sorter was started, used as initial PRNG seed and in dataset selection)
-let timeTaken = 0;        // savedata[1]      (Number of ms elapsed when sorter ends, used as end-of-sort flag and in filename generation)
-let choices   = '';       // savedata[2]      (String of '0', '1' and '2' that records what sorter choices are made)
-let optStr    = '';       // savedata[3]      (String of '0' and '1' that denotes top-level option selection)
-let suboptStr = '';       // savedata[4...n]  (String of '0' and '1' that denotes nested option selection, separated by '|')
-let timeError = false;    // Shifts entire savedata array to the right by 1 and adds an empty element at savedata[0] if true.
+let timestamp = 0; // savedata[0] (Unix time when sorter was started, used as initial PRNG seed and in dataset selection)
+let timeTaken = 0; // savedata[1] (Number of ms elapsed when sorter ends, used as end-of-sort flag and in filename generation)
+let choices   = ''; // savedata[2] (String of '0', '1' and '2' that records what sorter choices are made)
+let optStr    = ''; // savedata[3] (String of '0' and '1' that denotes top-level option selection)
+let suboptStr = ''; // savedata[4...n] (String of '0' and '1' that denotes nested option selection, separated by '|')
+let timeError = false; // Shifts entire savedata array to the right by 1 and adds an empty element at savedata[0] if true.
 
 /** Intermediate sorter data. */
 let sortedIndexList = [];
-let recordDataList  = [];
+let recordDataList = [];
 let parentIndexList = [];
-let tiedDataList    = [];
+let tiedDataList = [];
 
-let leftIndex       = 0;
-let leftInnerIndex  = 0;
-let rightIndex      = 0;
+let leftIndex = 0;
+let leftInnerIndex = 0;
+let rightIndex = 0;
 let rightInnerIndex = 0;
-let battleNo        = 1;
-let sortedNo        = 0;
-let pointer         = 0;
+let battleNo = 1;
+let sortedNo = 0;
+let pointer = 0;
 
 /** A copy of intermediate sorter data is recorded for undo() purposes. */
 let sortedIndexListPrev = [];
-let recordDataListPrev  = [];
+let recordDataListPrev = [];
 let parentIndexListPrev = [];
-let tiedDataListPrev    = [];
+let tiedDataListPrev = [];
 
-let leftIndexPrev       = 0;
-let leftInnerIndexPrev  = 0;
-let rightIndexPrev      = 0;
+let leftIndexPrev = 0;
+let leftInnerIndexPrev = 0;
+let rightIndexPrev = 0;
 let rightInnerIndexPrev = 0;
-let battleNoPrev        = 1;
-let sortedNoPrev        = 0;
-let pointerPrev         = 0;
+let battleNoPrev = 1;
+let sortedNoPrev = 0;
+let pointerPrev = 0;
 
 /** Miscellaneous sorter data that doesn't need to be saved for undo(). */
 let finalSongs = [];
-let loading         = false;
-let totalBattles    = 0;
-let sorterURL       = window.location.host + window.location.pathname;
-let storedSaveType  = localStorage.getItem(`${sorterURL}_saveType`);
+let loading = false;
+let totalBattles = 0;
+let sorterURL = window.location.host + window.location.pathname;
+let storedSaveType = localStorage.getItem(`${sorterURL}_saveType`);
 
 /** Initialize script. */
 function init() {
 
+  console.log(`hi dylan :)`);
   /** Define button behavior. */
   document.querySelector('.starting.start.button').addEventListener('click', start);
   document.querySelector('.starting.load.button').addEventListener('click', loadProgress);
@@ -68,7 +69,7 @@ function init() {
   document.querySelector('.sorting.save.button').addEventListener('click', () => saveProgress('Progress'));
   
   document.querySelector('.finished.save.button').addEventListener('click', () => saveProgress('Last Result'));
-  document.querySelector('.finished.getimg.button').addEventListener('click', generateImage);
+  document.querySelector('.finished.getting.button').addEventListener('click', generateImage);
   document.querySelector('.finished.list.button').addEventListener('click', generateTextList);
 
   document.querySelector('.clearsave').addEventListener('click', clearProgress);
@@ -78,10 +79,10 @@ function init() {
     /** If sorting is in progress. */
     if (timestamp && !timeTaken && !loading && choices.length === battleNo - 1) {
       switch(ev.key) {
-        case 's': case '3':                   saveProgress('Progress'); break;
-        case 'h': case 'ArrowLeft':           pick('left'); break;
-        case 'l': case 'ArrowRight':          pick('right'); break;
-        case 'k': case '1': case 'ArrowUp':   pick('tie'); break;
+        case 's': case '3': saveProgress('Progress'); break;
+        case 'h': case 'ArrowLeft': pick('left'); break;
+        case 'l': case 'ArrowRight': pick('right'); break;
+        case 'k': case '1': case 'ArrowUp': pick('tie'); break;
         case 'j': case '2': case 'ArrowDown': undo(); break;
         default: break;
       }
@@ -268,7 +269,7 @@ function start() {
     loading = false;
     document.querySelector('.loading.button').style.display = 'none';
     document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'block');
-    document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'block');
+    document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'flex');
     display();
   });
 }

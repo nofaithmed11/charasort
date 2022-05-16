@@ -12,13 +12,13 @@ body {
 
 .progress {
   margin: 1em auto;
-  width: 500px;
+  width: 540px;
   display: none;
 }
 
 .progressbar {
   position: relative;
-  width: 492px;
+  width: 532px;
   border: 1px solid black;
   padding: 3px;
   margin: 2px 0px;
@@ -121,13 +121,15 @@ body {
 }
 
 .sorter > .text {
-  width: 120px;
+  width: 180px;
   height: 60px;
   display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .sorter > .text > p {
-  margin: 0.5em 5px 0px;
+  margin: 0 5px 0px;
   width: calc(100%-10px);
   text-align: center;
   font-size: 0.8em;
