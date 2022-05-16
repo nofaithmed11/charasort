@@ -56,6 +56,7 @@ let storedSaveType = localStorage.getItem(`${sorterURL}_saveType`);
 /** Initialize script. */
 function init() {
 
+  console.log(`hi dylan :)`);
   /** Define button behavior. */
   document.querySelector('.starting.start.button').addEventListener('click', start);
   document.querySelector('.starting.load.button').addEventListener('click', loadProgress);

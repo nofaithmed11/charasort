@@ -1,6 +1,3 @@
-const songLibrary = require('./employees.json');
-console.log(songLibrary);
-
 dataSetVersion = "2022-05-13"; // Change this when creating a new data set version. YYYY-MM-DD format.
 dataSet[dataSetVersion] = {};
 
@@ -83,47 +80,4 @@ dataSet[dataSetVersion].options = [
     ]
   }];
 
-dataSet[dataSetVersion].songData = [
-  {
-    name: "Imagine",
-    img: "https://upload.wikimedia.org/wikipedia/en/6/69/ImagineCover.jpg",
-    opts: {
-      series: [ "Im"]
-    }
-  },
-  {
-    name: "Too Many People",
-    img: "https://upload.wikimedia.org/wikipedia/en/b/bd/RamMcCartneyalbumcover.jpg",
-    opts: {
-      series: [ "RAM"]
-    }
-  },
-  {
-    name: "My Sweet Lord",
-    img: "https://upload.wikimedia.org/wikipedia/en/a/a1/All_Things_Must_Pass_1970_cover.jpg",
-    opts: {
-      series: [ "ATMP"]
-    }
-  },
-  {
-    name: "Love Don't Last Long",
-    img: "https://upload.wikimedia.org/wikipedia/en/1/12/BeaucoupsBCover.jpg",
-    opts: {
-      series: [ "BoB"]
-    },
-  },
-  {
-    name: "Beautiful Night",
-    img: "https://upload.wikimedia.org/wikipedia/en/9/95/Flaming_Pie.jpg",
-    opts: {
-      series: [ "FP"]
-    }
-  },
-  {
-    name: "Beautiful Day",
-    img: "https://upload.wikimedia.org/wikipedia/en/9/95/Flaming_Pie.jpg",
-    opts: {
-      series: [ "FP"]
-    }
-  }
-];
+dataSet[dataSetVersion].songData = soloDiscographySongLibrary;

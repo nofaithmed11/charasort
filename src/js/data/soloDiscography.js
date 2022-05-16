@@ -1,4 +1,4 @@
-[
+const soloDiscographySongLibrary = [
     {
         "name": "Isn't It a Pity",
         "opts": {
